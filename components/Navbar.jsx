@@ -10,17 +10,17 @@ import { usePathname } from "next/navigation"
 export const Navbar = () => {
   const pathname = usePathname()
   return (
-    <Popover className="absolute  mx-auto w-full px-2 sm:px-20">
-      <div className="mx-2 px-2 md:mx-10">
+    <Popover className="absolute mx-auto w-full px-2 sm:px-20">
+      <div className="mx-2 px-2 md:mx-10 ">
         <div className="flex items-center justify-between py-4 md:justify-start md:space-x-10">
           <div className="flex flex-1 justify-start lg:w-0">
             <Link href="/">
               <Image src="/light-logo.png" alt="" width={35} height={35} />
             </Link>
           </div>
-          <div className="-my-2 -mr-2 md:hidden">
-            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-neutral-100 hover:text-neutral-200 focus:outline-none   ">
-              <span className="sr-only">Open menu</span>
+          <div className="-my-2 -mr-2 md:hidden text-green-400">
+            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-neutral-100 hover:text-neutral-200 focus:outline-none">
+              <span className="sr-only font-bold text-teal-400">Open menu</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -41,8 +41,8 @@ export const Navbar = () => {
             <Link
               className={
                 pathname == "/about"
-                  ? "text-base font-bold text-neutral-100 hover:text-neutral-200"
-                  : "text-base font-semibold text-neutral-100 hover:text-neutral-300"
+                  ? "text-lg font-bold text-teal-500 hover:text-green-700"
+                  : "text-lg font-semibold text-teal-500 hover:text-green-700"
               }
               href="/about"
             >
@@ -52,8 +52,8 @@ export const Navbar = () => {
             <Link
               className={
                 pathname == "/projects"
-                  ? "text-base font-bold text-neutral-100 hover:text-neutral-200"
-                  : "text-base font-medium text-neutral-100 hover:text-neutral-300"
+                  ? "text-lg font-bold text-teal-500 hover:text-green-700"
+                  : "text-lg font-medium text-teal-500 hover:text-green-700"
               }
               href="/projects"
             >
@@ -63,12 +63,12 @@ export const Navbar = () => {
             <Link
               className={
                 pathname == "/resources"
-                  ? "text-base font-bold text-neutral-100 hover:text-neutral-200"
-                  : "text-base font-medium text-neutral-100 hover:text-neutral-300"
+                  ? "text-lg font-bold text-teal-500 hover:text-green-700"
+                  : "text-lg font-medium text-teal-500 hover:text-green-700"
               }
               href="/resources"
             >
-              Resources
+              Skills
             </Link>
           </Popover.Group>
         </div>
@@ -96,7 +96,7 @@ export const Navbar = () => {
                   </Link>
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-neutral-400 hover:bg-neutral-100 hover:text-teal-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                     <span className="sr-only">Close menu</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -121,20 +121,19 @@ export const Navbar = () => {
                 <Link
                   className={
                     pathname == "/about"
-                      ? "text-base font-bold text-neutral-500 hover:text-neutral-900"
-                      : "text-base font-medium text-neutral-500 hover:text-neutral-900"
+                      ? "text-lg font-bold text-green-500 hover:text-green-700"
+                      : "text-lg font-medium text-green-500 hover:text-green-700"
                   }
                   href="/about"
                 >
-                  
                   About
                 </Link>
 
                 <Link
                   className={
                     pathname == "/projects"
-                      ? "text-base font-bold text-neutral-500 hover:text-neutral-900"
-                      : "text-base font-medium text-neutral-500 hover:text-neutral-900"
+                      ? "text-lg font-bold text-green-500 hover:text-green-700"
+                      : "text-lg font-medium text-green-500 hover:text-green-700"
                   }
                   href="/projects"
                 >
@@ -144,12 +143,12 @@ export const Navbar = () => {
                 <Link
                   className={
                     pathname == "/resources"
-                      ? "text-base font-bold text-neutral-500 hover:text-neutral-900"
-                      : "text-base font-medium text-neutral-500 hover:text-neutral-900"
+                      ? "text-lg font-bold text-teal-500 hover:text-green-700"
+                      : "text-lg font-medium text-green-500 hover:text-green-700"
                   }
                   href="/resources"
                 >
-                  Resources
+                  Skills
                 </Link>
               </div>
             </div>

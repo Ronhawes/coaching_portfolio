@@ -1,31 +1,31 @@
 "use client"
 import "../styles/globals.css"
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Navbar } from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import Social from "@/components/Social"
 import { usePathname } from "next/navigation"
 import SplashScreen from "@/components/SplashScreen"
+import background from "../public/background.png"
 
 export default function RootLayout({ children }) {
   const pathname = usePathname()
   const isHome = pathname === "/"
   const [isLoading, setIsLoading] = useState(isHome)
 
-  useEffect(() => {
-    if (isLoading) {
-      return
-    }
-  }, [isLoading])
-
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.jsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
-      <body className="bg-fill bg-[url('/background.png')] bg-fixed bg-no-repeat">
+      <body
+        style={{
+         backgroundImage: `linear-gradient(to bottom right, #4B79A1, #283E51), url(${background.src})`,
+
+          
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      >
         {isLoading && isHome ? (
           <SplashScreen finishLoading={() => setIsLoading(false)} />
         ) : (

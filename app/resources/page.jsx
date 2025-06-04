@@ -1,127 +1,130 @@
-import React from "react"
+"use client"
+import React, { useEffect, useRef } from "react"
+import anime from "animejs"
 
 const resources = [
   {
-    name: "goodbrief",
-    description: "A random generator for design briefs.",
-    link: "https://goodbrief.io/",
+    name: "Agile & Scrum",
+    description: "Framework for iterative project management.",
+    link: "https://www.scrum.org/resources/what-is-scrum",
   },
   {
-    name: "Midjourney",
-    description: "AI Text to Image Generator.",
-    link: "https://midjourney.com/home/?callbackUrl=%2Fapp%2F",
+    name: "anime.js",
+    description: "Lightweight JavaScript animation library.",
+    link: "https://animejs.com/",
   },
   {
-    name: "freepik",
-    description: "Image bank website.",
-    link: "https://www.freepik.com/free-photos-vectors/flat-illustration",
+    name: "CSS3",
+    description: "Style sheet language for describing the look of web pages.",
+    link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
   {
-    name: "removebg",
-    description: "Free Background Remover.",
-    link: "https://www.remove.bg/",
+    name: "Debugging",
+    description: "Critical skill for finding and fixing code issues.",
+    link: "https://developer.chrome.com/docs/devtools/",
   },
   {
-    name: "favicon.io",
-    description: "Free favicon generator.",
-    link: "https://favicon.io/",
+    name: "Problem Solving",
+    description: "Key software engineering and coding interview skill.",
+    link: "https://leetcode.com/",
   },
   {
-    name: "React Icons",
-    description: "Popular icon packs.",
-    link: "https://react-icons.github.io/react-icons",
+    name: "Integration Testing",
+    description: "Testing combined parts of an application to ensure they work together.",
+    link: "https://jestjs.io/docs/getting-started",
   },
   {
-    name: "heroicons",
-    description: "Icons from Tailwind CSS.",
-    link: "https://heroicons.com/",
-  },
-  {
-    name: "Flowbite",
-    description: "Components using Tailwind CSS.",
-    link: "https://flowbite.com/",
-  },
-  {
-    name: "Vercel",
-    description: "Easy deployment platform.",
-    link: "https://vercel.com/",
-  },
-  {
-    name: "PlanetScale",
-    description: "Serverless MySQL  platform.",
-    link: "https://planetscale.com/",
-  },
-  {
-    name: "umami",
-    description: "Alternative to Google Analytics.",
-    link: "https://umami.is/",
-  },
-  {
-    name: "Rapid API",
-    description: "API Hub.",
-    link: "https://rapidapi.com/hub",
-  },
-  {
-    name: "Excalidraw",
-    description: "Virtual collaborative whiteboard.",
-    link: "https://excalidraw.com/",
-  },
-  {
-    name: "Craft",
-    description: "Alternative to Notion.",
-    link: "https://www.craft.do/",
-  },
-  {
-    name: "Futurepedia.io",
-    description: "AI tool directory.",
-    link: "https://www.futurepedia.io/",
+    name: "Figma",
+    description: "Collaborative interface design tool.",
+    link: "https://figma.com/",
   },
   {
     name: "Tailwind CSS",
-    description: "Utility-first CSS framework.",
+    description: "Utility-first CSS framework for rapid UI development.",
     link: "https://tailwindcss.com/",
-  },
-  {
-    name: "Product Hunt",
-    description: "Curation of the best new products.",
-    link: "https://www.producthunt.com/",
-  },
-  {
-    name: "Gumroad",
-    description: "E-commerce platform.",
-    link: "https://gumroad.com/",
   },
 ]
 
 export default function ResourcesPage() {
-  const sortedArr = resources.sort((a, b) => a.name.localeCompare(b.name))
-  return (
-    <main className="mx-auto min-h-screen max-w-3xl px-6  md:max-w-5xl">
-      <div className="py-24 sm:px-28 sm:py-28">
-        <h1 className="text-4xl font-bold text-white md:pb-2 md:text-6xl">
-          Resources.
-        </h1>
-        <p className="text-md pb-4 leading-5 text-neutral-100  sm:text-xl">
-          Here are a few resources I've have compiled along the way that I
-          reference frequently and find very useful. It's a work in progress.
-        </p>
+  const ref = useRef(null)
 
-        <ul className="text-neutral-100">
-          {sortedArr.map((item, idx) => {
-            return (
-              <li key={idx}>
-                <p>
-                  {" "}
-                  <a href={item.link} target="_blank" className="underline">
-                    {item.name}
-                  </a>
-                  {" - "}
-                  {item.description}
-                </p>
-              </li>
-            )
-          })}
-        </ul>
+  // Intersection Observer to trigger animation when the element comes into view
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          anime({
+            targets: entry.target.querySelectorAll(".fade-in"),
+            opacity: [0, 1],
+            translateY: [30, 0],
+            delay: anime.stagger(100),
+            easing: "easeOutExpo",
+            duration: 800,
+          })
+        }
+      })
+    }, { threshold: 0.5 })
+
+    const sections = ref.current.querySelectorAll(".resource-box")
+    sections.forEach((section) => observer.observe(section))
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section))
+    }
+  }, [])
+
+  const sortedArr = resources.sort((a, b) => a.name.localeCompare(b.name))
+
+  const rows = []
+  for (let i = 0; i < sortedArr.length; i += 2) {
+    rows.push([sortedArr[i], sortedArr[i + 1] || {}]) // Handle last item if odd number
+  }
+
+  return (
+    <main className="mx-auto min-h-screen max-w-7xl px-6 py-24 text-teal-400">
+      <h1 className="fade-in text-4xl font-bold text-teal-400 md:text-6xl mb-6">Skills.</h1>
+      <p className="fade-in text-lg mb-10 text-neutral-300">
+        A collection of essential development skills and tools I frequently use.
+      </p>
+
+      <div ref={ref} className="relative">
+        {/* Vertical Line */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 top-0 h-full border-l-2 border-neutral-500"></div>
+
+        <div className="space-y-6">
+          {rows.map((pair, rowIdx) => (
+            <div key={rowIdx} className="flex gap-6 relative">
+              {/* Circle Animation */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 top-10 h-full">
+                <div className="circle w-4 h-4 rounded-full bg-neutral-500 opacity-0 fade-in animate-circle" />
+              </div>
+
+              {/* Render two boxes per row, alternating position */}
+              {pair.map((item, colIdx) => (
+                item.name ? (
+                  <div
+                    key={colIdx}
+                    className={`resource-box w-full md:w-1/2 p-6 fade-in rounded-lg bg-black shadow-lg ${
+                      colIdx % 2 === 0 ? "order-last md:order-first" : "order-first md:order-last"
+                    }`}
+                  >
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xl font-semibold underline hover:text-teal-400"
+                    >
+                      {item.name}
+                    </a>
+                    <p className="mt-2 text-base text-neutral-300">{item.description}</p>
+                  </div>
+                ) : (
+                  <div key={colIdx} className="resource-box w-full md:w-1/2 p-6" />
+                )
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   )

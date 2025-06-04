@@ -1,66 +1,48 @@
+"use client"
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import anime from "animejs"
+import logo from "../public/dark-logo.png"
 
 const SplashScreen = ({ finishLoading }) => {
   const [isMounted, setIsMounted] = useState(false)
-  const animate = () => {
-    const loader = anime.timeline({
-      complete: () => finishLoading(),
-    })
-
-    loader
-      .add({
-        targets: "#logo",
-        delay: 0,
-        scale: 1,
-        duration: 500,
-        easing: "easeInOutExpo",
-      })
-      .add({
-        targets: "#logo",
-        delay: 100,
-        scale: 1.25,
-        duration: 500,
-        easing: "easeInOutExpo",
-      })
-      .add({
-        targets: "#logo",
-        delay: 100,
-        scale: 1,
-        duration: 500,
-        easing: "easeInOutExpo",
-      })
-      .add({
-        targets: "#logo",
-        delay: 100,
-        scale: 1.25,
-        duration: 500,
-        easing: "easeInOutExpo",
-      })
-      .add({
-        targets: "#logo",
-        delay: 100,
-        scale: 1,
-        duration: 500,
-        easing: "easeInOutExpo",
-      })
-  }
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 10)
-    animate()
+    const timeout = setTimeout(() => {
+      setIsMounted(true)
+
+      anime({
+        targets: "#logo",
+        scale: [
+          { value: 1, duration: 0 },
+          { value: 1.3, duration: 400, easing: "easeInOutQuad" },
+          { value: 1, duration: 400, easing: "easeOutBounce" },
+          { value: 1.3, duration: 400, easing: "easeInOutQuad" },
+          { value: 1, duration: 400, easing: "easeOutBounce" },
+        ],
+        complete: () => finishLoading(),
+      })
+    }, 10)
+
     return () => clearTimeout(timeout)
-  }, [])
+  }, [finishLoading])
 
   return (
-  <div className="flex h-screen items-center justify-center">
-    {isMounted && (
-      <p>Mounted!</p>
-    )}
-  </div>
-);
-
+    <div className="flex h-screen w-screen items-center justify-center bg-gray-800">
+      {isMounted && (
+        <div>
+          <Image
+            id="logo"
+            src={logo}
+            alt="Hybrid Sports Logo"
+            width={60}
+            height={60}
+            priority
+          />
+        </div>
+      )}
+    </div>
+  )
 }
 
 export default SplashScreen
