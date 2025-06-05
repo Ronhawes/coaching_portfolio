@@ -3,47 +3,68 @@ import React, { useEffect, useRef } from "react"
 import anime from "animejs"
 
 const resources = [
+  
   {
-    name: "Agile & Scrum",
-    description: "Framework for iterative project management.",
-    link: "https://www.scrum.org/resources/what-is-scrum",
+    name: "JavaScript",
+    description: "Versatile programming language used to create dynamic and interactive web applications.",
+    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
   {
     name: "anime.js",
-    description: "Lightweight JavaScript animation library.",
+    description: "Lightweight JavaScript animation library for creating complex animations.",
     link: "https://animejs.com/",
   },
   {
     name: "CSS3",
-    description: "Style sheet language for describing the look of web pages.",
+    description: "Style sheet language used for describing the presentation of a document written in HTML.",
     link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
   {
-    name: "Debugging",
-    description: "Critical skill for finding and fixing code issues.",
-    link: "https://developer.chrome.com/docs/devtools/",
+    name: "React.js",
+    description: "JavaScript library for building user interfaces using a component-based architecture.",
+    link: "https://reactjs.org/",
   },
   {
-    name: "Problem Solving",
-    description: "Key software engineering and coding interview skill.",
-    link: "https://leetcode.com/",
+    name: "Node.js/Express",
+    description: "Backend runtime environment (Node.js) and web framework (Express) for building server-side applications.",
+    link: "https://expressjs.com/",
   },
   {
-    name: "Integration Testing",
-    description: "Testing combined parts of an application to ensure they work together.",
-    link: "https://jestjs.io/docs/getting-started",
+    name: "Database Management",
+    description: "Experience working with MySQL, PostgreSQL, and Supabase for efficient data storage and retrieval.",
+    link: "https://supabase.com/docs",
   },
   {
     name: "Figma",
-    description: "Collaborative interface design tool.",
+    description: "Collaborative interface design tool used for UI/UX design and prototyping.",
     link: "https://figma.com/",
   },
   {
     name: "Tailwind CSS",
-    description: "Utility-first CSS framework for rapid UI development.",
+    description: "Utility-first CSS framework for building modern, responsive user interfaces quickly.",
     link: "https://tailwindcss.com/",
   },
-]
+  {
+    name: "Next.js",
+    description: "React framework for building full-stack web applications with SSR, routing, and API support.",
+    link: "https://nextjs.org/",
+  },
+  {
+    name: "Prisma",
+    description: "Next-generation ORM for Node.js and TypeScript that simplifies database access.",
+    link: "https://www.prisma.io/docs",
+  },
+  {
+    name: "Integration Testing",
+    description: "Testing approach focused on verifying interactions between integrated units/modules.",
+    link: "https://jestjs.io/docs/getting-started",
+  },
+  {
+    name: "ReactBits",
+    description: "Curated collection of React design patterns, techniques, and tips for advanced development.",
+    link: "https://www.reactbits.dev/",
+  },
+];
 
 export default function ResourcesPage() {
   const ref = useRef(null)

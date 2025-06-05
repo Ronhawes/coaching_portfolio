@@ -2,6 +2,7 @@
 import React, { useEffect } from "react"
 import Image from "next/image"
 import anime from "animejs"
+import Magnet from "@/components/Magnet"
 
 export default function AboutPage() {
   useEffect(() => {
@@ -18,8 +19,10 @@ export default function AboutPage() {
   return (
     <main className="mx-auto min-h-screen max-w-3xl px-6 text-left md:max-w-5xl">
       <div className="flex flex-col space-y-6 py-24 sm:px-28 sm:py-28 md:space-y-0">
-        <h1 className="about-fade text-5xl font-bold text-teal-400 md:pb-6 md:text-6xl">
-          About Me.
+        <h1 className="about-fade text-7xl font-bold text-teal-400 md:pb-6 md:text-6xl">
+          <Magnet padding={50} disabled={false} magnetStrength={80}>
+    <p className="text-7xl">About <span className="text-blue-600 font-bold">Me</span>!</p>
+  </Magnet>
         </h1>
         <div className="about-fade flex flex-col space-y-8 sm:items-center sm:justify-center md:flex-row md:space-y-0 md:space-x-6">
           <div className="md:mt-2 md:w-1/2">

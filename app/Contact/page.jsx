@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Magnet from '@/components/Magnet';
 
 const ContactForm = () => {
   const bgRef = useRef(null);
@@ -27,8 +28,8 @@ const ContactForm = () => {
         {/* Watery animated background layer */}
         <div
           ref={bgRef}
-          className="absolute inset-0 z-0 rounded bg-gradient-to-br from-blue-400 via-teal-300 to-blue-500 bg-[length:400%_400%]"
-          style={{ opacity: 0.5 }}
+          className="absolute inset-0 z-0 rounded bg-gradient-to-br from-blue-900 via-teal-300 to-blue-500 bg-[length:400%_400%]"
+          style={{ opacity: 1 }}
         />
 
         {/* Form content */}
@@ -37,7 +38,14 @@ const ContactForm = () => {
           method="POST"
           className="relative z-10 space-y-4 backdrop-blur-md bg-white/50 p-6 rounded"
         >
-          <h2 className="text-xl font-bold text-center">Contact Us</h2>
+          
+<h2 className="text-xl font-bold text-center">
+  <Magnet padding={50} disabled={false} magnetStrength={50}>
+    <p className="text-2xl">Contact <span className="text-blue-600 font-bold">Me</span>!</p>
+  </Magnet>
+</h2>
+
+          
 
           <div>
             <label className="block mb-1 font-semibold" htmlFor="name">Name:</label>
@@ -60,10 +68,20 @@ const ContactForm = () => {
               className="w-full border border-black rounded px-3 py-2 bg-transparent"
             />
           </div>
+          <div>
+            <label className="block mb-1 font-semibold" htmlFor="email">Email Subject:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              className="w-full border border-black rounded px-3 py-2 bg-transparent"
+            />
+          </div>
 
           <div>
             <label className="block mb-1 font-semibold" htmlFor="website_functionality">
-              Website Functionality Needed:
+              Your message:
             </label>
             <textarea
               name="website_functionality"
