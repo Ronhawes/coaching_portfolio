@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <head />
       <body
         style={{
-         backgroundImage: `linear-gradient(to bottom right, #4B79A1, #283E51), url(${background.src})`,
+         backgroundImage: `linear-gradient(to bottom right, #121212, #283E51), url(${background.src})`,
 
           
           backgroundSize: "cover",

@@ -48,25 +48,26 @@ const resources = [
 export default function ResourcesPage() {
   const ref = useRef(null)
 
-  // Intersection Observer to trigger animation when the element comes into view
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           anime({
-            targets: entry.target.querySelectorAll(".fade-in"),
+            targets: entry.target,
             opacity: [0, 1],
-            translateY: [30, 0],
-            delay: anime.stagger(100),
+            translateY: [50, 0],
             easing: "easeOutExpo",
             duration: 800,
           })
         }
       })
-    }, { threshold: 0.5 })
+    }, { threshold: 0.3 })
 
     const sections = ref.current.querySelectorAll(".resource-box")
-    sections.forEach((section) => observer.observe(section))
+    sections.forEach((section) => {
+      section.style.opacity = 0 // Start hidden
+      observer.observe(section)
+    })
 
     return () => {
       sections.forEach((section) => observer.unobserve(section))
@@ -74,10 +75,9 @@ export default function ResourcesPage() {
   }, [])
 
   const sortedArr = resources.sort((a, b) => a.name.localeCompare(b.name))
-
   const rows = []
   for (let i = 0; i < sortedArr.length; i += 2) {
-    rows.push([sortedArr[i], sortedArr[i + 1] || {}]) // Handle last item if odd number
+    rows.push([sortedArr[i], sortedArr[i + 1] || {}])
   }
 
   return (
@@ -91,20 +91,19 @@ export default function ResourcesPage() {
         {/* Vertical Line */}
         <div className="absolute left-1/2 transform -translate-x-1/2 top-0 h-full border-l-2 border-neutral-500"></div>
 
-        <div className="space-y-6">
+        <div className="space-y-12">
           {rows.map((pair, rowIdx) => (
             <div key={rowIdx} className="flex gap-6 relative">
-              {/* Circle Animation */}
+              {/* Circle */}
               <div className="absolute left-1/2 transform -translate-x-1/2 top-10 h-full">
-                <div className="circle w-4 h-4 rounded-full bg-neutral-500 opacity-0 fade-in animate-circle" />
+                <div className="w-4 h-4 rounded-full bg-neutral-500 opacity-80" />
               </div>
 
-              {/* Render two boxes per row, alternating position */}
               {pair.map((item, colIdx) => (
                 item.name ? (
                   <div
                     key={colIdx}
-                    className={`resource-box w-full md:w-1/2 p-6 fade-in rounded-lg bg-black shadow-lg ${
+                    className={`resource-box w-full md:w-1/2 min-h-[200px] p-10 rounded-xl bg-black shadow-2xl transition-all duration-300 hover:scale-[1.02] ${
                       colIdx % 2 === 0 ? "order-last md:order-first" : "order-first md:order-last"
                     }`}
                   >
@@ -112,11 +111,11 @@ export default function ResourcesPage() {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xl font-semibold underline hover:text-teal-400"
+                      className="text-3xl font-bold underline hover:text-teal-400"
                     >
                       {item.name}
                     </a>
-                    <p className="mt-2 text-base text-neutral-300">{item.description}</p>
+                    <p className="mt-4 text-lg text-neutral-300">{item.description}</p>
                   </div>
                 ) : (
                   <div key={colIdx} className="resource-box w-full md:w-1/2 p-6" />

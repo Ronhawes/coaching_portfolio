@@ -1,65 +1,68 @@
-import React from "react"
-import Link from "next/link"
-import { TbHeartHandshake, TbSoccerField } from "react-icons/tb"
-import { IoMdPhotos } from "react-icons/io"
+'use client';
+
+import React, { useEffect, useRef } from 'react';
+import Link from 'next/link';
+import anime from 'animejs';
+import { GiTennisRacket } from 'react-icons/gi';
+import { MdFeedback } from 'react-icons/md';
+
 export default function ProjectsPage() {
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    anime({
+      targets: cardsRef.current,
+      translateY: [50, 0],
+      opacity: [0, 1],
+      delay: anime.stagger(200),
+      duration: 1000,
+      easing: 'easeOutExpo',
+    });
+  }, []);
+
   return (
-    <main className="mx-auto min-h-screen max-w-3xl px-6  md:max-w-5xl">
-      <div className="py-24 sm:px-28 sm:py-28">
-        <h1 className="pb-2 text-4xl font-bold text-teal-400 md:text-6xl">
+    <main className="mx-auto min-h-screen max-w-7xl px-6 py-12 md:px-12">
+      <div className="py-24">
+        <h1 className="pb-4 text-5xl font-black text-teal-400 md:text-7xl">
           Projects.
         </h1>
-        <p className="pb-4 font-bold text-teal-400">
-          Here are a few side projects I've been working on to improve my coding
-          skills.
+        <p className="pb-8 text-2xl font-semibold text-white">
+          Here are a few side projects I've been working on to improve my coding skills.
         </p>
+
         <section>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <Link href="https://thankfulthoughts.io/" target="_blank">
-              <div className="rounded-md bg-neutral-200 p-4 hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600 ">
-                <div className="flex flex-row items-center justify-center space-x-2">
-                  <TbHeartHandshake
-                    size={30}
-                    className="text-neutral-500 dark:text-neutral-300"
-                  />
-                  <h1 className="font-semibold text-neutral-500 dark:text-neutral-300">
-                    Thankful Thoughts
-                  </h1>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+            {[{
+              href: 'https://hybridsportske2.netlify.app/',
+              icon: <GiTennisRacket size={50} className="text-green-500" />,
+              title: 'Padel Tennis Sports Website',
+              description: 'Designed and developed an interactive platform with dynamic back-end and front-end for seamless booking and registration.'
+            }, {
+              href: 'https://feedbackcardanalyserke.netlify.app/',
+              icon: <MdFeedback size={50} className="text-green-500" />,
+              title: 'FeedbackCardAnalyser',
+              description: 'Developed an interactive platform with a dynamic back-end and front-end functionality for interactive subscriptions and card generation.'
+            }].map((project, index) => (
+              <Link href={project.href} target="_blank" key={index}>
+                <div
+                  ref={(el) => (cardsRef.current[index] = el)}
+                  className="rounded-xl bg-black p-10 hover:bg-neutral-900 shadow-lg transition-all"
+                >
+                  <div className="flex flex-col items-center space-y-4 text-center">
+                    {project.icon}
+                    <h1 className="text-2xl font-bold text-white">
+                      {project.title}
+                    </h1>
+                    <p className="text-lg text-white">
+                      {project.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Link>
-            <Link href="https://sportstable.vercel.app/" target="_blank">
-              <div className="rounded-md bg-neutral-200 p-4 hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600 ">
-                <div className="flex flex-row items-center justify-center space-x-2">
-                  <TbSoccerField
-                    size={30}
-                    className="text-neutral-500 dark:text-neutral-300"
-                  />
-                  <h1 className=" font-semibold text-neutral-500 dark:text-neutral-300">
-                    SportsTable
-                  </h1>
-                </div>
-              </div>
-            </Link>
-            <Link href="https://katorfamilyphotos.com/" target="_blank">
-              <div className="rounded-md bg-neutral-200 p-4 hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600 ">
-                <div className="flex flex-row items-center justify-center space-x-2">
-                  {" "}
-                  <IoMdPhotos
-                    size={30}
-                    className="text-neutral-500 dark:text-neutral-300"
-                  />
-                  <h1 className=" font-semibold text-neutral-500 dark:text-neutral-300">
-                    Kator Family Photos
-                  </h1>
-                </div>
-              </div>
-            </Link>
+              </Link>
+            ))}
           </div>
         </section>
-
-        <section></section>
       </div>
     </main>
-  )
+  );
 }

@@ -14,12 +14,14 @@ export const Navbar = () => {
       <div className="mx-2 px-2 md:mx-10 ">
         <div className="flex items-center justify-between py-4 md:justify-start md:space-x-10">
           <div className="flex flex-1 justify-start lg:w-0">
-            <Link href="/">
-              <Image src="/light-logo.png" alt="" width={35} height={35} />
-            </Link>
+            <Link href="/" className="flex items-center space-x-2">
+  <Image src="/light-logo.png" alt="Logo" width={35} height={35} />
+  <div className="text-4xl font-bold text-teal-900">My Portfolio</div>
+</Link>
+
           </div>
           <div className="-my-2 -mr-2 md:hidden text-green-400">
-            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-neutral-100 hover:text-neutral-200 focus:outline-none">
+            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-teal-700 hover:text-neutral-200 focus:outline-none">
               <span className="sr-only font-bold text-teal-400">Open menu</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,6 +71,16 @@ export const Navbar = () => {
               href="/resources"
             >
               Skills
+            </Link>
+            <Link
+              className={
+                pathname == "/Contact"
+                  ? "text-lg font-bold text-teal-500 hover:text-green-700"
+                  : "text-lg font-medium text-teal-500 hover:text-green-700"
+              }
+              href="/Contact"
+            >
+              Contact_Me
             </Link>
           </Popover.Group>
         </div>
@@ -149,6 +161,16 @@ export const Navbar = () => {
                   href="/resources"
                 >
                   Skills
+                </Link>
+                <Link
+                  className={
+                    pathname == "/Contact"
+                      ? "text-lg font-bold text-teal-500 hover:text-green-700"
+                      : "text-lg font-medium text-green-500 hover:text-green-700"
+                  }
+                  href="/Contact"
+                >
+                  Contact_Me
                 </Link>
               </div>
             </div>
