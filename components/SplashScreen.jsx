@@ -1,8 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react"
-import Image from "next/image"
 import anime from "animejs"
-import logo from "../public/dark-logo.png"
+import { GiAbstract077 } from "react-icons/gi"
 
 const SplashScreen = ({ finishLoading }) => {
   const [isMounted, setIsMounted] = useState(false)
@@ -11,17 +10,28 @@ const SplashScreen = ({ finishLoading }) => {
     const timeout = setTimeout(() => {
       setIsMounted(true)
 
-      anime({
+      // Create timeline for pulses
+      const timeline = anime.timeline({
         targets: "#logo",
-        scale: [
-          { value: 1, duration: 0 },
-          { value: 1.3, duration: 400, easing: "easeInOutQuad" },
-          { value: 1, duration: 400, easing: "easeOutBounce" },
-          { value: 1.3, duration: 400, easing: "easeInOutQuad" },
-          { value: 1, duration: 400, easing: "easeOutBounce" },
-        ],
-        complete: () => finishLoading(),
+        easing: "easeInOutQuad",
       })
+
+      timeline
+        .add({ scale: 2, duration: 300 })
+        .add({ scale: 1, duration: 300 })
+        .add({ scale: 4, duration: 300 })
+        .add({ scale: 1, duration: 300 })
+        .add({ scale: 6, duration: 300 })
+        .add({ scale: 1, duration: 300 })
+        .add({ scale: 8, duration: 300 })
+        .add({ scale: 1, duration: 300 })
+        // 🔽 Fade-out effect
+        .add({
+          opacity: 60,
+          duration: 500,
+          easing: "easeInOutQuad",
+          complete: () => finishLoading(),
+        })
     }, 10)
 
     return () => clearTimeout(timeout)
@@ -31,14 +41,7 @@ const SplashScreen = ({ finishLoading }) => {
     <div className="flex h-screen w-screen items-center justify-center bg-gray-800">
       {isMounted && (
         <div>
-          <Image
-            id="logo"
-            src={logo}
-            alt="Hybrid Sports Logo"
-            width={60}
-            height={60}
-            priority
-          />
+          <GiAbstract077 id="logo" className="text-6xl text-white" />
         </div>
       )}
     </div>

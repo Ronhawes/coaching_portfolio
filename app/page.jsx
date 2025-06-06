@@ -45,11 +45,9 @@ export default function Home() {
           variants={containerVariants}
           className="text-left space-y-4 max-w-xl"
         >
-         <motion.div variants={itemVariants} className="text-xl font-bold text-white md:text-6xl">
-            Hello! I'm.
-          </motion.div>
-
-
+         <motion.h1 variants={itemVariants} className="text-xl font-bold text-white md:text-6xl">
+            Hello! I&#39;m
+         </motion.h1>
           <motion.h1 variants={itemVariants} className="text-2xl font-bold text-white md:text-6xl">
             Maganga Ronnie.
           </motion.h1>
@@ -66,7 +64,7 @@ export default function Home() {
             variants={itemVariants}
             className="text-lg text-neutral-300 md:text-xl"
           >
-            I am a Software Engineer passionate about building scalable, high-performance applications and optimizing backend architectures. I'm seeking to leverage expertise in fullstack development to create efficient, user-friendly applications that enhance system reliability and user experience.
+            I am a Software Engineer passionate about building scalable, high-performance applications and optimizing backend architectures. I&#39;m seeking to leverage expertise in fullstack development to create efficient, user-friendly applications that enhance system reliability and user experience.
           </motion.p>
 
           <motion.button

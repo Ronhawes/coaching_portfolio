@@ -36,7 +36,7 @@ export default function AboutPage() {
           </div>
           <div className="about-fade text-white md:mt-2 md:w-1/2">
             <p className="text-xl leading-8">
-              <span className="font-bold">Hi, I’m Ronnie Maganga.</span> I'm a
+              <span className="font-bold">Hi, I&rsquo;m Ronnie Maganga.</span> I&rsquo;m a
               passionate software engineer and developer based in{" "}
               <span className="font-bold">Nairobi, Kenya.</span>
             </p>

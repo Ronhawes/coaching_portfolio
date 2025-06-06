@@ -27,7 +27,7 @@ export default function ProjectsPage() {
           Projects.
         </h1>
         <p className="pb-8 text-2xl font-semibold text-white">
-          Here are a few side projects I've been working on to improve my coding skills.
+          Here are a few side projects I&#39;ve been working on to improve my coding skills.
         </p>
 
         <section>

@@ -1,8 +1,8 @@
 "use client"
 import { Fragment } from "react"
+import { GiAbstract077 } from "react-icons/gi";
 
 import Link from "next/link"
-import Image from "next/image"
 
 import { Popover, Transition } from "@headlessui/react"
 import { usePathname } from "next/navigation"
@@ -15,9 +15,9 @@ export const Navbar = () => {
         <div className="flex items-center justify-between py-4 md:justify-start md:space-x-10">
           <div className="flex flex-1 justify-start lg:w-0">
             <Link href="/" className="flex items-center space-x-2">
-  <Image src="/light-logo.png" alt="Logo" width={35} height={35} />
-  <div className="text-4xl font-bold text-teal-900">My Portfolio</div>
-</Link>
+                <GiAbstract077 className="text-4xl text-white"/>
+                 <div className="text-4xl font-bold text-teal-900">My Portfolio</div>
+           </Link>
 
           </div>
           <div className="-my-2 -mr-2 md:hidden text-green-400">
@@ -104,7 +104,7 @@ export const Navbar = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <Link href="/">
-                    <Image src="/dark-logo.png" alt="" width={35} height={35} />
+                    <GiAbstract077 />
                   </Link>
                 </div>
                 <div className="-mr-2">
