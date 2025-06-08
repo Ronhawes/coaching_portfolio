@@ -7,6 +7,7 @@ import Social from "@/components/Social"
 import { usePathname } from "next/navigation"
 import SplashScreen from "@/components/SplashScreen"
 import background from "../public/background.png"
+import Ballpit from "@/components/Ballpit"
 
 export default function RootLayout({ children }) {
   const pathname = usePathname()
