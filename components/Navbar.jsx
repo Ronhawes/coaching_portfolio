@@ -1,91 +1,72 @@
-"use client"
-import { Fragment } from "react"
+"use client";
+import { Fragment } from "react";
 import { GrTime } from "react-icons/gr";
-
-import Link from "next/link"
-
-import { Popover, Transition } from "@headlessui/react"
-import { usePathname } from "next/navigation"
+import Link from "next/link";
+import { Popover, Transition } from "@headlessui/react";
+import { usePathname } from "next/navigation";
 
 export const Navbar = () => {
-  const pathname = usePathname()
-  return (
-    <Popover className="absolute mx-auto w-full px-2 sm:px-20">
-      <div className="mx-2 px-2 md:mx-10 ">
-        <div className="flex items-center justify-between py-4 md:justify-start md:space-x-10">
-          <div className="flex flex-1 justify-start lg:w-0">
-            <Link href="/" className="flex items-center space-x-2">
-                <GrTime  className="text-4xl text-white"/>
-                 <div className="text-4xl font-bold text-teal-900">My Portfolio</div>
-           </Link>
+  const pathname = usePathname();
 
+  return (
+    <Popover className="fixed top-0 z-50 w-full bg-transparent">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-4 md:justify-start md:space-x-10">
+          {/* Logo Section */}
+          <div className="flex justify-start lg:w-0 lg:flex-1">
+            <Link href="/" className="flex items-center space-x-2">
+              <GrTime className="text-3xl sm:text-4xl text-white" />
+              <span className="text-2xl sm:text-3xl font-bold text-teal-400">
+                My Portfolio
+              </span>
+            </Link>
           </div>
-          <div className="-my-2 -mr-2 md:hidden text-green-400">
-            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-teal-700 hover:text-neutral-200 focus:outline-none">
-              <span className="sr-only font-bold text-teal-400">Open menu</span>
+
+          {/* Mobile Hamburger Icon */}
+          <div className="-mr-2 flex md:hidden">
+            <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-teal-300 hover:text-white focus:outline-none">
+              <span className="sr-only">Open menu</span>
               <svg
-                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                stroke="currentColor"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="h-6 w-6"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
             </Popover.Button>
           </div>
-          <Popover.Group as="nav" className="hidden space-x-10 md:flex">
-            <Link
-              className={
-                pathname == "/about"
-                  ? "text-lg font-bold text-teal-500 hover:text-green-700"
-                  : "text-lg font-semibold text-teal-500 hover:text-green-700"
-              }
-              href="/about"
-            >
-              About
-            </Link>
 
-            <Link
-              className={
-                pathname == "/projects"
-                  ? "text-lg font-bold text-teal-500 hover:text-green-700"
-                  : "text-lg font-medium text-teal-500 hover:text-green-700"
-              }
-              href="/projects"
-            >
-              Projects
-            </Link>
-
-            <Link
-              className={
-                pathname == "/resources"
-                  ? "text-lg font-bold text-teal-500 hover:text-green-700"
-                  : "text-lg font-medium text-teal-500 hover:text-green-700"
-              }
-              href="/resources"
-            >
-              Skills
-            </Link>
-            <Link
-              className={
-                pathname == "/Contact"
-                  ? "text-lg font-bold text-teal-500 hover:text-green-700"
-                  : "text-lg font-medium text-teal-500 hover:text-green-700"
-              }
-              href="/Contact"
-            >
-              Contact_Me
-            </Link>
+          {/* Desktop Navigation Links */}
+          <Popover.Group as="nav" className="hidden md:flex space-x-10">
+            {[
+              { name: "About", href: "/about" },
+              { name: "Projects", href: "/projects" },
+              { name: "Skills", href: "/resources" },
+              { name: "Contact_Me", href: "/Contact" },
+            ].map(({ name, href }) => (
+              <Link
+                key={name}
+                href={href}
+                className={`text-lg ${
+                  pathname === href
+                    ? "font-bold text-teal-400"
+                    : "font-medium text-white"
+                } hover:text-teal-300`}
+              >
+                {name}
+              </Link>
+            ))}
           </Popover.Group>
         </div>
       </div>
 
+      {/* Mobile Dropdown Menu */}
       <Transition
         as={Fragment}
         enter="duration-200 ease-out"
@@ -97,86 +78,54 @@ export const Navbar = () => {
       >
         <Popover.Panel
           focus
-          className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
+          className="md:hidden absolute top-0 inset-x-0 z-50 p-2 transition transform origin-top-right"
         >
-          <div className="divide-y-2 divide-neutral-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-            <div className="px-5 pt-5 pb-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <Link href="/">
-                    <GrTime  />
-                  </Link>
-                </div>
-                <div className="-mr-2">
-                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-neutral-400 hover:bg-neutral-100 hover:text-teal-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                    <span className="sr-only">Close menu</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="h-6 w-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </Popover.Button>
-                </div>
-              </div>
+          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-neutral-900 divide-y divide-gray-700">
+            <div className="pt-5 pb-6 px-5 flex items-center justify-between">
+              <Link href="/" className="flex items-center space-x-2">
+                <GrTime className="text-2xl text-teal-400" />
+                <span className="text-xl font-bold text-white">My Portfolio</span>
+              </Link>
+              <Popover.Button className="rounded-md p-2 text-neutral-400 hover:text-white">
+                <span className="sr-only">Close menu</span>
+                <svg
+                  className="h-6 w-6"
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </Popover.Button>
             </div>
-            <div className="space-y-6 py-6 px-5">
-              <div className="grid grid-cols-1 gap-y-4 gap-x-8">
+            <div className="py-6 px-5 space-y-4">
+              {[
+                { name: "About", href: "/about" },
+                { name: "Projects", href: "/projects" },
+                { name: "Skills", href: "/resources" },
+                { name: "Contact_Me", href: "/Contact" },
+              ].map(({ name, href }) => (
                 <Link
-                  className={
-                    pathname == "/about"
-                      ? "text-lg font-bold text-green-500 hover:text-green-700"
-                      : "text-lg font-medium text-green-500 hover:text-green-700"
-                  }
-                  href="/about"
+                  key={name}
+                  href={href}
+                  className={`block text-lg ${
+                    pathname === href
+                      ? "font-bold text-teal-400"
+                      : "font-medium text-white"
+                  } hover:text-teal-300`}
                 >
-                  About
+                  {name}
                 </Link>
-
-                <Link
-                  className={
-                    pathname == "/projects"
-                      ? "text-lg font-bold text-green-500 hover:text-green-700"
-                      : "text-lg font-medium text-green-500 hover:text-green-700"
-                  }
-                  href="/projects"
-                >
-                  Projects
-                </Link>
-
-                <Link
-                  className={
-                    pathname == "/resources"
-                      ? "text-lg font-bold text-teal-500 hover:text-green-700"
-                      : "text-lg font-medium text-green-500 hover:text-green-700"
-                  }
-                  href="/resources"
-                >
-                  Skills
-                </Link>
-                <Link
-                  className={
-                    pathname == "/Contact"
-                      ? "text-lg font-bold text-teal-500 hover:text-green-700"
-                      : "text-lg font-medium text-green-500 hover:text-green-700"
-                  }
-                  href="/Contact"
-                >
-                  Contact_Me
-                </Link>
-              </div>
+              ))}
             </div>
           </div>
         </Popover.Panel>
       </Transition>
     </Popover>
-  )
-}
+  );
+};

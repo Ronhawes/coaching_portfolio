@@ -34,21 +34,17 @@ export default function AboutPage() {
               className="rounded-lg shadow-2xl"
             />
           </div>
-          <div className="about-fade text-white md:mt-2 md:w-1/2">
-            <p className="text-xl leading-8">
-              <span className="font-bold">Hi, I&rsquo;m Ronnie Maganga.</span> I&rsquo;m a
-              passionate software engineer and developer based in{" "}
-              <span className="font-bold">Nairobi, Kenya.</span>
-            </p>
-            <br />
-            <p className="text-xl leading-8">
+          <div className="about-fade text-white md:text-2xl md:mt-2 md:w-1/2">
+            
+            <p className=" leading-8">
               I enjoy building web applications that solve real-world problems
               and create lasting user impact. Beyond coding, I mentor young
               athletes, analyze professional matches, and explore new
               technologies.
             </p>
             <br />
-            <p className="text-xl leading-8">
+            <p className="
+             leading-8">
               I believe in a growth mindset and that{" "}
               <span className="font-bold text-teal-400">
                 giving up is never an option.

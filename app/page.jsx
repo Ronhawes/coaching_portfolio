@@ -3,9 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-
 import headshot from "../public/headshot.png";
-
 
 const roles = ["Software Engineer", "Fullstack Developer", "Backend Developer"];
 
@@ -34,37 +32,43 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen 
-    z flex items-center justify-center px-6">
+    <main className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-12 py-12">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="flex flex-col-reverse md:flex-row items-center gap-10 max-w-6xl"
+        className="flex flex-col-reverse md:flex-row items-center gap-10 max-w-6xl w-full"
       >
         {/* Text Section */}
         <motion.div
           variants={containerVariants}
-          className="text-left space-y-4 max-w-xl"
+          className="text-left space-y-4 max-w-xl w-full"
         >
-         <motion.h1 variants={itemVariants} className="text-xl font-bold text-white md:text-6xl">
+          <motion.h1
+            variants={itemVariants}
+            className="text-2xl sm:text-3xl md:text-5xl font-bold text-white"
+          >
             Hello! I&#39;m
-         </motion.h1>
-          <motion.h1 variants={itemVariants} className="text-2xl font-bold text-white md:text-6xl">
+          </motion.h1>
+
+          <motion.h1
+            variants={itemVariants}
+            className="text-3xl sm:text-4xl md:text-6xl font-bold text-white"
+          >
             Maganga Ronnie.
           </motion.h1>
 
           <motion.p
             key={roleIndex}
             variants={itemVariants}
-            className="text-2xl font-semibold text-teal-400 md:text-3xl"
+            className="text-xl sm:text-2xl md:text-3xl font-semibold text-teal-400"
           >
             {roles[roleIndex]}
           </motion.p>
 
           <motion.p
             variants={itemVariants}
-            className="text-lg text-neutral-300 md:text-xl"
+            className="text-base sm:text-lg md:text-xl text-neutral-300"
           >
             I am a Software Engineer passionate about building scalable, high-performance applications and optimizing backend architectures. I&#39;m seeking to leverage expertise in fullstack development to create efficient, user-friendly applications that enhance system reliability and user experience.
           </motion.p>
@@ -80,10 +84,10 @@ export default function Home() {
           </motion.button>
         </motion.div>
 
-        {/* Image with Gradient Glow */}
+        {/* Image Section */}
         <motion.div
           variants={itemVariants}
-          className="relative w-80 h-80 rounded-full ring-4 ring-white"
+          className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full ring-4 ring-white shrink-0"
         >
           <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 via-teal-300 via-30% to-orange-300 opacity-80 blur-3xl z-0"></div>
           <Image
@@ -91,10 +95,10 @@ export default function Home() {
             alt="Headshot"
             fill
             className="object-cover rounded-full relative z-10"
+            priority
           />
         </motion.div>
       </motion.div>
     </main>
   );
 }
-
