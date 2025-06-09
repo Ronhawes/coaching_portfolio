@@ -3,6 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Magnet from '@/components/Magnet';
 
+
+
 const ContactForm = () => {
   const bgRef = useRef(null);
   const [submitted, setSubmitted] = useState(false);
@@ -52,7 +54,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black">
+    <div className="min-h-screen flex items-center justify-center ">
       <div className="relative max-w-xl w-30 p-6 rounded shadow-lg text-black overflow-hidden">
 
         {/* Form */}

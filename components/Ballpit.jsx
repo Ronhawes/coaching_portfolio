@@ -475,8 +475,8 @@ class Y extends c {
 
 const X = {
   count: 200,
-  colors: [0, 0, 0],
-  ambientColor: 16777215,
+  colors: [0, 0, 0], // RGB black background
+  ambientColor: 0xffffff,
   ambientIntensity: 1,
   lightIntensity: 200,
   materialParams: {
@@ -496,8 +496,9 @@ const X = {
   maxY: 5,
   maxZ: 2,
   controlSphere0: false,
-  followCursor: true,  // Added default for followCursor
+  followCursor: true,
 };
+
 
 const U = new m();
 
@@ -593,7 +594,7 @@ function createBallpit(e, t = {}) {
   i.resize();
   initialize(t);
   const n = new y();
-  const o = new w(new a(0, 0, 1), 0);
+  const o = new w(new a(0, 1, 1), 0);
   const r = new a();
   let c = false;
   const h = S({

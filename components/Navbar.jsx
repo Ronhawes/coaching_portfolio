@@ -1,6 +1,6 @@
 "use client"
 import { Fragment } from "react"
-import { GiAbstract077 } from "react-icons/gi";
+import { GrTime } from "react-icons/gr";
 
 import Link from "next/link"
 
@@ -15,7 +15,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between py-4 md:justify-start md:space-x-10">
           <div className="flex flex-1 justify-start lg:w-0">
             <Link href="/" className="flex items-center space-x-2">
-                <GiAbstract077 className="text-4xl text-white"/>
+                <GrTime  className="text-4xl text-white"/>
                  <div className="text-4xl font-bold text-teal-900">My Portfolio</div>
            </Link>
 
@@ -104,7 +104,7 @@ export const Navbar = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <Link href="/">
-                    <GiAbstract077 />
+                    <GrTime  />
                   </Link>
                 </div>
                 <div className="-mr-2">
