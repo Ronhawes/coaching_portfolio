@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import anime from 'animejs';
-import { GiTennisRacket } from 'react-icons/gi';
+import { SiRacket } from "react-icons/si";;
 import { MdFeedback } from 'react-icons/md';
 import { FaUserGraduate } from "react-icons/fa";
 
@@ -42,8 +42,8 @@ export default function ProjectsPage() {
             },
               {
               href: 'https://hybridsportske2.',
-              icon: <GiTennisRacket size={50} className="text-green-500" />,
-              title: 'Padel Tennis Sports Website',
+              icon: <SiRacket size={50} className="text-green-500" />,
+              title: 'ProGenPadel',
               description: 'Designed and developed an interactive platform with dynamic back-end and front-end for seamless booking and registration. still under development'
             }, {
               href: 'https://feedbackcardanalyserke.netlify.app/',

@@ -63,8 +63,9 @@ const ContactForm = () => {
   };
 
   return (
-  <div className="min-h-screen flex items-center justify-center px-4 py-8">
-    <div className="w-full max-w-[600px] md:max-w-2xl lg:max-w-3xl p-4 sm:p-6 rounded-2xl border border-white/30 shadow-2xl bg-white/10 backdrop-blur-lg text-black space-y-6">
+  <div className="min-h-screen flex items-center justify-center p-2">
+    <div className="w-full max-w-2xl p-4 sm:p-8 rounded-2xl border border-white/30 shadow-2xl bg-white/10 backdrop-blur-lg text-black space-y-6">
+
       {!showForm ? (
         <div className="text-center">
           <div className="flex justify-center">
@@ -91,19 +92,13 @@ const ContactForm = () => {
         </div>
       ) : (
         <div ref={formRef}>
-          <div className="flex justify-end mb-2">
-            <button
-              onClick={() => setShowForm(false)}
-              className="text-sm text-red-600 hover:text-red-800 font-semibold"
-            >
-              ✕ Close
-            </button>
-          </div>
-
+          
+        <div ref={formRef} className="flex justify-center max-w-4xl items-center flex-col text-white space-y-4">
           <Magnet padding={150} disabled={false} magnetStrength={150}>
+            <div className=''>
             <form
               onSubmit={handleSubmit}
-              className="w-full space-y-4 text-white"
+              className=""
             >
               <h2 className="text-xl sm:text-2xl font-bold text-center mb-4">
                 <Magnet padding={50} disabled={false} magnetStrength={150}>
@@ -116,24 +111,27 @@ const ContactForm = () => {
               {[
                 { id: 'name', type: 'text', label: 'Name:' },
                 { id: 'email', type: 'email', label: 'Email:' },
+                { id: 'phone_number', type: 'tel', label: 'Phone number:' },
                 { id: 'email_subject', type: 'text', label: 'Email Subject:' },
               ].map(({ id, type, label }) => (
-                <div key={id}>
+                <div key={id} className='mb-4'>
                   <label className="block mb-1 font-semibold" htmlFor={id}>
                     {label}
                   </label>
                   <input
-                    type={type}
-                    name={id}
-                    id={id}
-                    required
-                    className="w-full border border-white/20 rounded px-3 py-2 bg-white/20 backdrop-blur-sm text-black placeholder:text-black/60"
-                  />
+  type={type}
+  name={id}
+  id={id}
+  required
+  className="w-full border border-white/20 rounded px-10 py-3 bg-white/20 backdrop-blur-sm text-black placeholder:text-black/60"
+/>
+
+                  
                 </div>
               ))}
 
               <div>
-                <label className="block mb-1 font-semibold" htmlFor="website_functionality">
+                <label className="block mb-2 font-semibold" htmlFor="website_functionality">
                   Your Message:
                 </label>
                 <textarea
@@ -145,31 +143,33 @@ const ContactForm = () => {
                 ></textarea>
               </div>
 
-              <div>
-                <label className="block mb-1 font-semibold" htmlFor="phone_number">
-                  Phone Number:
-                </label>
-                <input
-                  type="tel"
-                  name="phone_number"
-                  id="phone_number"
-                  className="w-full border border-white/20 rounded px-3 py-2 bg-white/20 backdrop-blur-sm text-black placeholder:text-black/60"
-                />
-              </div>
+              
 
               <Magnet padding={100} disabled={false} magnetStrength={150}>
-                <button
-                  type="submit"
-                  className={`mt-4 w-full px-6 py-3 text-white rounded-lg font-semibold shadow-lg transition ${
-                    submitted ? 'bg-green-600' : 'bg-black hover:bg-gray-800'
-                  }`}
-                  disabled={loading || submitted}
-                >
-                  {submitted ? 'Submitted Successfully ✅' : loading ? 'Sending...' : 'Send'}
-                </button>
-              </Magnet>
+  <div className="flex justify-between items-center gap-x-16 mt-6">
+    
+    <button
+      type="submit"
+      className={`px-6 py-3 text-white rounded-lg font-semibold shadow-lg transition ${
+        submitted ? 'bg-green-600' : 'bg-black hover:bg-gray-800'
+      }`}
+      disabled={loading || submitted}
+    >
+      {submitted ? 'Submitted Successfully ✅' : loading ? 'Sending...' : 'Submit'}
+    </button>
+    <button
+      onClick={() => setShowForm(false)}
+      className="text-sm text-teal-600 hover:text-red-800 font-semibold"
+    >
+      ✕ Close
+    </button>
+  </div>
+</Magnet>
+
             </form>
+            </div>
           </Magnet>
+          </div>
         </div>
       )}
     </div>

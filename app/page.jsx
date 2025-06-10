@@ -68,7 +68,7 @@ export default function Home() {
 
           <motion.p
             variants={itemVariants}
-            className="text-base sm:text-lg md:text-xl text-neutral-300"
+            className="text-base font-bold sm:text-lg md:text-xl text-neutral-300"
           >
             I am a Software Engineer passionate about building scalable, high-performance applications and optimizing backend architectures. I&#39;m seeking to leverage expertise in fullstack development to create efficient, user-friendly applications that enhance system reliability and user experience.
           </motion.p>
@@ -80,7 +80,7 @@ export default function Home() {
             className="mt-4 px-6 py-3 text-white bg-teal-500 hover:bg-teal-600 rounded-lg font-semibold shadow-lg transition"
             onClick={() => window.open("/resume.pdf", "_blank")}
           >
-            Download CV
+          My CV
           </motion.button>
         </motion.div>
 
