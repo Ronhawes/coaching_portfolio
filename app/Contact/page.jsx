@@ -161,7 +161,7 @@ const ContactForm = () => {
       onClick={() => setShowForm(false)}
       className="text-sm text-teal-600 hover:text-red-800 font-semibold"
     >
-      ✕ Close
+      X Close
     </button>
   </div>
 </Magnet>
