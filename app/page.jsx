@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import headshot from "../public/headshot.png";
 
-const roles = ["Software Engineer", "Fullstack Developer", "Backend Developer"];
+const roles = ["Tennis Coach", "Padel Coach", "Sportperson"];
 
 export default function Home() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -70,7 +70,7 @@ export default function Home() {
             variants={itemVariants}
             className="text-base font-bold sm:text-lg md:text-xl text-neutral-300"
           >
-            I am a Software Engineer passionate about building scalable, high-performance applications and optimizing backend architectures. I&#39;m seeking to leverage expertise in fullstack development to create efficient, user-friendly applications that enhance system reliability and user experience.
+            I am a Passionate and dedicated padel and tennis coach with a strong background in player development, fitness training, and strategic game improvement. Seeking to contribute my expertise in coaching and mentoring players of all levels to a dynamic sports academy or club.
           </motion.p>
 
           <motion.button

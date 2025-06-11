@@ -6,8 +6,9 @@ import Footer from "@/components/Footer"
 import Social from "@/components/Social"
 import { usePathname } from "next/navigation"
 import SplashScreen from "../components/SplashScreen"
-import Ballpit from "../components/Ballpit"
 import background from "../public/background.png"
+
+import Squares  from "../components/Squares"
 
 export default function RootLayout({ children }) {
   const pathname = usePathname()
@@ -18,43 +19,30 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head />
       <body style={{ margin: 0, padding: 0, overflowX: "hidden" }}>
-        {/* Ballpit background */}
         {/* Background image layer */}
-<div
-  style={{
-    backgroundImage: `url(${background.src})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    position: "fixed",
-    width: "100%",
-    height: "100vh",
-    top: 0,
-    left: 0,
-    zIndex: -3,
-  }}
+        <div
+          style={{
+            backgroundImage: `url(${background.src})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            position: "fixed",
+            width: "100%",
+            height: "100vh",
+            top: 0,
+            left: 0,
+            zIndex: -3,
+          }}
+        />
+
+        
+  
+<Squares 
+speed={0.5} 
+squareSize={40}
+direction='diagonal' // up, down, left, right, diagonal
+borderColor='#fff'
+hoverFillColor='#222'
 />
-
-{/* Ballpit over the image */}
-<div
-  style={{
-    position: "fixed",
-    zIndex: -2,
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100vh",
-    overflow: "hidden",
-  }}
->
-  <Ballpit
-    count={200}
-    gravity={0.7}
-    friction={0.8}
-    wallBounce={0.95}
-    followCursor={true}
-  />
-</div>
-
 
         {/* Main Content */}
         {isLoading && isHome ? (
