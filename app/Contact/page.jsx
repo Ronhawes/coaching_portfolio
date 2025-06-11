@@ -78,7 +78,7 @@ const ContactForm = () => {
             />
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4 text-teal-300">
-            Have an Idea?
+            They Call Me the Spin Expert
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-white mb-4">
             Feel free to contact me
@@ -87,7 +87,7 @@ const ContactForm = () => {
             onClick={() => setShowForm(true)}
             className="px-6 py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-semibold shadow"
           >
-            Contact Me
+            Get in touch!
           </button>
         </div>
       ) : (
@@ -103,45 +103,95 @@ const ContactForm = () => {
               <h2 className="text-xl sm:text-2xl font-bold text-center mb-4">
                 <Magnet padding={50} disabled={false} magnetStrength={150}>
                   <p className="text-2xl sm:text-3xl text-teal-300">
-                    Contact <span className="text-white font-bold">Me</span>!
+                    Book A <span className="text-white font-bold">Session</span>!
                   </p>
                 </Magnet>
               </h2>
 
               {[
-                { id: 'name', type: 'text', label: 'Name:' },
-                { id: 'email', type: 'email', label: 'Email:' },
-                { id: 'phone_number', type: 'tel', label: 'Phone number:' },
-                { id: 'email_subject', type: 'text', label: 'Email Subject:' },
-              ].map(({ id, type, label }) => (
-                <div key={id} className='mb-4'>
-                  <label className="block mb-1 font-semibold" htmlFor={id}>
-                    {label}
-                  </label>
-                  <input
-  type={type}
-  name={id}
-  id={id}
-  required
-  className="w-full border border-white/20 rounded px-10 py-3 bg-white/20 backdrop-blur-sm text-black placeholder:text-black/60"
-/>
+  { id: 'name', type: 'text', label: 'Name:' },
+  { id: 'email', type: 'email', label: 'Email:' },
+  { id: 'phone_number', type: 'tel', label: 'Phone number:' },
+].map(({ id, type, label }) => (
+  <div key={id} className='mb-4'>
+    <label className="block mb-1 font-semibold" htmlFor={id}>
+      {label}
+    </label>
+    <input
+      type={type}
+      name={id}
+      id={id}
+      required
+      className="w-full border border-white/20 rounded px-10 py-3 bg-white/20 backdrop-blur-sm text-black placeholder:text-black/60"
+    />
+  </div>
+))}
 
-                  
-                </div>
-              ))}
+{/* Date input */}
+<div className='mb-4'>
+  <label className="block mb-1 font-semibold" htmlFor="session_date">
+    Date:
+  </label>
+  <input
+    type="date"
+    name="session_date"
+    id="session_date"
+    required
+    min={new Date().toISOString().split('T')[0]}
+    className="w-full border border-white/20 rounded px-10 py-3 bg-white/20 backdrop-blur-sm text-black placeholder:text-black/60"
+  />
+</div>
 
-              <div>
-                <label className="block mb-2 font-semibold" htmlFor="website_functionality">
-                  Your Message:
-                </label>
-                <textarea
-                  name="website_functionality"
-                  id="website_functionality"
-                  required
-                  rows={4}
-                  className="w-full border border-white/20 rounded px-3 py-2 bg-white/20 backdrop-blur-sm text-black placeholder:text-black/60"
-                ></textarea>
-              </div>
+{/* Time input */}
+<div className='mb-4'>
+  <label className="block mb-1 font-semibold" htmlFor="session_time">
+    Time:
+  </label>
+  <input
+    type="time"
+    name="session_time"
+    id="session_time"
+    required
+    className="w-full border border-white/20 rounded px-10 py-3 bg-white/20 backdrop-blur-sm text-black placeholder:text-black/60"
+  />
+</div>
+
+{/* Sport Type selection */}
+<div className='mb-4'>
+  <label className="block mb-1 font-semibold" htmlFor="sport_type">
+    Sport Type:
+  </label>
+  <select
+    name="sport_type"
+    id="sport_type"
+    required
+    className="w-full border border-white/20 rounded px-10 py-3 bg-white/20 backdrop-blur-sm text-black"
+  >
+    <option value="">Select...</option>
+    <option value="Tennis">Tennis</option>
+    <option value="Padel">Padel</option>
+  </select>
+</div>
+
+{/* Session Type selection */}
+<div className='mb-4'>
+  <label className="block mb-1 font-semibold" htmlFor="session_type">
+    Session Type:
+  </label>
+  <select
+    name="session_type"
+    id="session_type"
+    required
+    className="w-full border border-white/20 rounded px-10 py-3 bg-white/20 backdrop-blur-sm text-black"
+  >
+    <option value="">Select...</option>
+    <option value="1 person only">1 Person Only</option>
+    <option value="group of two">Group of Two</option>
+    <option value="group of more than 2">Group of More Than 2</option>
+  </select>
+</div>
+
+
 
               
 

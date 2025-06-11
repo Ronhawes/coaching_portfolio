@@ -33,16 +33,21 @@ export default function RootLayout({ children }) {
             zIndex: -3,
           }}
         />
+        <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100vh", zIndex: -2 }}>
+  <Squares 
+    speed={0.5} 
+    squareSize={40}
+    direction="diagonal"
+    borderColor="#fff"
+    hoverFillColor="#222"
+  />
+</div>
+
+
 
         
   
-<Squares 
-speed={0.5} 
-squareSize={40}
-direction='diagonal' // up, down, left, right, diagonal
-borderColor='#fff'
-hoverFillColor='#222'
-/>
+
 
         {/* Main Content */}
         {isLoading && isHome ? (

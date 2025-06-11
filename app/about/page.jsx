@@ -37,10 +37,9 @@ export default function AboutPage() {
           <div className="about-fade text-white md:text-2xl md:mt-2 md:w-1/2">
             
             <p className=" leading-8">
-              I enjoy building web applications that solve real-world problems
-              and create lasting user impact. Beyond coding, I mentor young
-              athletes, analyze professional matches, and explore new
-              technologies.
+              Passionate and dedicated padel and tennis coach with a strong background in player development, fitness training, and strategic game improvement.
+               Seeking to contribute my expertise in coaching and mentoring players of all levels to a dynamic sports academy or club. 
+               Committed to Mentoring Young athletes, Padel Tennis Tactics and Strategy Development and Watching and Analyzing Professional Matches
             </p>
             <br />
             <p className="

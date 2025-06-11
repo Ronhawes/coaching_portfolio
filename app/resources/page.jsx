@@ -3,68 +3,45 @@ import React, { useEffect, useRef } from "react"
 import anime from "animejs"
 
 const resources = [
-  
   {
-    name: "JavaScript",
-    description: "Versatile programming language used to create dynamic and interactive web applications.",
-    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    name: "Strength and Co-ordination",
+    description: "Training focused on enhancing an athlete's ability to generate force and move efficiently. Includes resistance training, agility drills, and proprioceptive exercises to improve body control."
   },
   {
-    name: "anime.js",
-    description: "Lightweight JavaScript animation library for creating complex animations.",
-    link: "https://animejs.com/",
+    name: "Fitness Program Design",
+    description: "Creating structured workout plans tailored to individual or group needs, considering fitness level, goals, training frequency, and progression principles."
   },
   {
-    name: "CSS3",
-    description: "Style sheet language used for describing the presentation of a document written in HTML.",
-    link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    name: "Sports Management",
+    description: "Overseeing operations, planning events, managing teams, and ensuring smooth logistics for sports organizations and activities."
   },
   {
-    name: "React.js",
-    description: "JavaScript library for building user interfaces using a component-based architecture.",
-    link: "https://reactjs.org/",
+    name: "Effective Communication",
+    description: "Clear and constructive communication strategies that enhance coach-athlete understanding, team coordination, and motivation during training and competition."
   },
   {
-    name: "Node.js/Express",
-    description: "Backend runtime environment (Node.js) and web framework (Express) for building server-side applications.",
-    link: "https://expressjs.com/",
+    name: "Match Strategy",
+    description: "Developing tactical game plans based on the opponent's strengths and weaknesses, player positioning, and in-game decision-making."
   },
   {
-    name: "Database Management",
-    description: "Experience working with MySQL, PostgreSQL, and Supabase for efficient data storage and retrieval.",
-    link: "https://supabase.com/docs",
+    name: "Conducting Group Coaching",
+    description: "Leading group training sessions with effective organization, inclusiveness, and engagement to ensure all participants improve and stay motivated."
   },
   {
-    name: "Figma",
-    description: "Collaborative interface design tool used for UI/UX design and prototyping.",
-    link: "https://figma.com/",
-  },
-  {
-    name: "Tailwind CSS",
-    description: "Utility-first CSS framework for building modern, responsive user interfaces quickly.",
-    link: "https://tailwindcss.com/",
+    name: "Creating Drills and Personal Training Services",
+    description: "Designing skill-specific drills for individuals and offering one-on-one coaching programs customized to client goals, sport, and fitness level."
   },
   {
     name: "Next.js",
-    description: "React framework for building full-stack web applications with SSR, routing, and API support.",
-    link: "https://nextjs.org/",
-  },
-  {
-    name: "Prisma",
-    description: "Next-generation ORM for Node.js and TypeScript that simplifies database access.",
-    link: "https://www.prisma.io/docs",
+    description: "A React framework useful for building high-performance web applications, often used in athlete portals or booking systems for sports programs."
   },
   {
     name: "Integration Testing",
-    description: "Testing approach focused on verifying interactions between integrated units/modules.",
-    link: "https://jestjs.io/docs/getting-started",
-  },
-  {
-    name: "ReactBits",
-    description: "Curated collection of React design patterns, techniques, and tips for advanced development.",
-    link: "https://www.reactbits.dev/",
-  },
+    description: "Ensuring multiple systems or components (like athlete data, schedules, and payment systems) work together correctly in your web platform."
+  }
 ];
+
+
 
 export default function ResourcesPage() {
   const ref = useRef(null)

@@ -1,6 +1,6 @@
 "use client";
 import { Fragment } from "react";
-import { GrTime } from "react-icons/gr";
+import { IoTennisball } from "react-icons/io5";
 import Link from "next/link";
 import { Popover, Transition } from "@headlessui/react";
 import { usePathname } from "next/navigation";
@@ -15,9 +15,9 @@ export const Navbar = () => {
           {/* Logo Section */}
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/" className="flex items-center space-x-2">
-              <GrTime className="text-3xl sm:text-4xl text-white" />
+              <IoTennisball className="text-3xl sm:text-4xl text-white" />
               <span className="text-2xl sm:text-3xl font-bold text-teal-400">
-                My Portfolio
+                Lead_Coach
               </span>
             </Link>
           </div>
@@ -46,7 +46,7 @@ export const Navbar = () => {
           <Popover.Group as="nav" className="hidden md:flex space-x-10">
             {[
               { name: "About", href: "/about" },
-              { name: "Projects", href: "/projects" },
+              
               { name: "Skills", href: "/resources" },
               { name: "Contact_Me", href: "/Contact" },
             ].map(({ name, href }) => (
@@ -83,7 +83,7 @@ export const Navbar = () => {
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-neutral-900 divide-y divide-gray-700">
             <div className="pt-5 pb-6 px-5 flex items-center justify-between">
               <Link href="/" className="flex items-center space-x-2">
-                <GrTime className="text-2xl text-teal-400" />
+                <IoTennisball className="text-2xl text-teal-400" />
                 <span className="text-xl font-bold text-white">My Portfolio</span>
               </Link>
               <Popover.Button className="rounded-md p-2 text-neutral-400 hover:text-white">
@@ -105,8 +105,7 @@ export const Navbar = () => {
             </div>
             <div className="py-6 px-5 space-y-4">
               {[
-                { name: "About", href: "/about" },
-                { name: "Projects", href: "/projects" },
+                { name: "About", href: "/about" },                
                 { name: "Skills", href: "/resources" },
                 { name: "Contact_Me", href: "/Contact" },
               ].map(({ name, href }) => (

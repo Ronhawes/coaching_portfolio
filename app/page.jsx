@@ -55,7 +55,7 @@ export default function Home() {
             variants={itemVariants}
             className="text-3xl sm:text-4xl md:text-6xl font-bold text-white"
           >
-            Maganga Ronnie.
+            Ronny Sila.
           </motion.h1>
 
           <motion.p
