@@ -77,11 +77,11 @@ const ContactForm = () => {
               className="rounded-full shadow-lg"
             />
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4 text-teal-300">
+          <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mt-4 text-teal-300">
             They Call Me the Spin Expert
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-white mb-4">
-            Feel free to contact me
+            Feel free to contact me on whatsapp via; +254794906146
           </p>
           <button
             onClick={() => setShowForm(true)}
